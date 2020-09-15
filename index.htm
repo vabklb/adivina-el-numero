@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+</head>
+<body>
+    
+    <script>
+        var max = 20;
+        var min = 0;
+        var aleatorio = Math.floor(Math.random() * max - min + 1) + min;
+        var intentos = 0;
+        var nombre = prompt('Bienvenido al juego de adivinar el numero, ¿cual es tu nombre?');
+        for(intentos; intentos < 5; intentos++){
+            numero = parseInt(prompt(nombre + ' ingresa un numero entre ' + min + ' y ' + max + '.'));
+            if(numero >= min && numero <= max){
+                if( numero < aleatorio ){
+                    alert('El numero ingresado es menor.');
+                    var min = numero;
+                }
+                else if(numero > aleatorio){
+                    alert('El numero ingresado es mayor.');
+                    var max = numero;
+                }
+                else if(numero == aleatorio){
+                    alert('Buen trabajo ' + nombre + '!!!   Has acertado en ' + (intentos + 1) + ' intentos.');
+                    break;
+                }
+            }
+            else{
+                alert('Debe ingresar un numero entre ' + min + ' y ' + max + '.');
+            }
+        }
+        if(!(numero == aleatorio)){
+            alert('Lo lamento ' + nombre + 'has agotado los intentos.');
+        }
+    </script>
+</body>
+</html>
